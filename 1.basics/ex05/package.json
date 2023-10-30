@@ -1,0 +1,27 @@
+{
+  "name": "ex05",
+  "version": "1.0.0",
+  "description": "ex05: React API 기반의 애플리케이션 리팩토링",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx webpack serve --progress",
+    "build": "npx webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css": "^3.0.0",
+    "loader": "^2.1.1",
+    "node-sass": "^9.0.0",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
