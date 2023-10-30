@@ -11,8 +11,8 @@ module.exports = {
     module:{
         rules : [{
             // .css로 끝나는 모듈이라는 의미.
-            test: /\.css$/i,
-            use: ['style-loader','css-loader']
+            test: /\.(css|scss|sass)$/i,
+            use: ['style-loader','css-loader','sass-loader']
         }]
     },
     devServer:{
