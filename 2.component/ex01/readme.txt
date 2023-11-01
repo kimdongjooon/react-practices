@@ -9,7 +9,7 @@ ex01: property
 src/01: 함수 컴포넌트의 property
 src/02: Data Flow
 src/03: 클래스 컴포넌트의 property
-src/04: Property Validation
+src/04: Property Validation (prop-types 패키지 설치)
 
 
 ==============================================================================================================================
