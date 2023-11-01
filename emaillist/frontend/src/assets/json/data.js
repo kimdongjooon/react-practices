@@ -1,4 +1,4 @@
-[
+export default [
     {
         "no": 1,
         "firstName": "둘",

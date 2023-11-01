@@ -19,7 +19,7 @@ ul, ol {
     width: 100%
 }
 
-.App {
+#App {
     width: 300px;
     margin: 5px auto 0 auto;
     background-color: #f2f2f2;
@@ -27,6 +27,7 @@ ul, ol {
     border-radius: 2px;
     padding: 7px;
 }
+/* ----- ~까지.App.scss 내용 */
 
 .RegisterForm {
     width: 100%;
@@ -77,6 +78,7 @@ ul, ol {
 .RegisterForm input[type="submit"]:hover {
      background-color: #eee;
 }
+/* ----- RegisterForm.scss-----*/
 
 .Searchbar {
     width: 100%;
@@ -93,6 +95,7 @@ ul, ol {
 .Searchbar input{
     outline: none;
 }
+/*  ------ */
 
 .Emaillist {
     width: 100%;

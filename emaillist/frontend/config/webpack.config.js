@@ -11,6 +11,10 @@ module.exports = function(env) {
         },
         module:{
             rules : [{
+                test: /\.json/i,
+                type: 'javascript/auto',
+                loader:'json-loader'
+            },{
                 test: /\.js/i,
                 exclude: /node_modules/,
                 loader: 'babel-loader', 
