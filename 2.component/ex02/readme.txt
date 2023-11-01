@@ -1,15 +1,22 @@
 ex02: Component Styling
-1. 컴포넌트의 데이터
-2. 부모에서 자식으로 전달된다.
-    - 컴포넌트 통신(Data Flow)
-    - Top -> Down
-3. 자식에서는 변경 불가.
-4. 부모가 소유한 데이터.
+1) inline styling
+2) Normal CSS
+    - css-loader option: {module: false}
+    - 실행.
+        $ npm run debug src=02 css-module=false
+3) CSS Module I
+    - css-loader option: {module: true}
+    - 실행.
+        $ npm run debug src=03
+4) CSS Module II
+    - css-loader option: {module: true}
+    - 실행.
+        $ npm run debug src=04
+5) SASS & SCSS
+6) CSS in JS: Stlyed Component
+7) React Modal
+8) Modal: Material UI
 
-src/01: 함수 컴포넌트의 property
-src/02: Data Flow
-src/03: 클래스 컴포넌트의 property
-src/04: Property Validation (prop-types 패키지 설치)
 
 
 ==============================================================================================================================
