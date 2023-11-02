@@ -1,5 +1,5 @@
 import React from 'react';
-// import './asset/css/App.css';
+import './assets/scss/App.scss';
 import Kanbanboard from './kanbanboard';
 
 function App() {

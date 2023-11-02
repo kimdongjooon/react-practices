@@ -1,5 +1,8 @@
 import React from "react";
 import data from './assets/json/data';
+import ToDoCardList from './ToDoCardList';
+import InProgressCardList from "./InProgressCardList";
+import DoneCardList from "./DoneCardList";
 
 function Kanbanboard(props){
 
@@ -11,7 +14,11 @@ function Kanbanboard(props){
     console.log("2"+cardsTodo);
     return(
         <div>
-            {/* <CardList cards={[]}/> */}
+            <ToDoCardList />
+            <InProgressCardList />
+            <DoneCardList />
+
+
         </div>
         
         
