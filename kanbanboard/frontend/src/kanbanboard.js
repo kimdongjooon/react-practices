@@ -1,5 +1,6 @@
 import React from "react";
 import data from './assets/json/data';
+import styles from './assets/scss/Kanbanboard';
 import ToDoCardList from './ToDoCardList';
 import InProgressCardList from "./InProgressCardList";
 import DoneCardList from "./DoneCardList";
