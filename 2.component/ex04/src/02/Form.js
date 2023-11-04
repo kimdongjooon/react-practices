@@ -14,7 +14,7 @@ export default function Form() {
     const onChangeName = (e) => {
         // console.log(e.target.value);
         // setName(e.target.value);
-        //10자 제한.
+        // 10자 제한.
         console.log(e.target.value.substr(0,10));
         setName(e.target.value.substr(0,10));
     }

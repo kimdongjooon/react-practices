@@ -22,6 +22,7 @@ export default class extends Component {
                         //this.val +=1;
                         //console.log(this.val);
                         //this.render()
+                        console.log(this);
                         this.setState({
                             val: this.state.val + this.props.step
                         })
