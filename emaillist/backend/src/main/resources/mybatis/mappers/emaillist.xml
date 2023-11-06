@@ -10,6 +10,15 @@
         order by no desc
 		]]>
 	</select>
+	
+	<select id="latestEmail" resultType="emaillistvo">
+		<![CDATA[
+		  select no, first_name, last_name, email 
+		    from emaillist 
+        order by no desc
+        limit 0,1
+		]]>
+	</select>
 
 	<insert id="insert" parameterType="emaillistvo">
 		<![CDATA[
