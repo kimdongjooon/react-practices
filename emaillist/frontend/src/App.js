@@ -8,28 +8,7 @@ import update from 'react-addons-update';
 
 function App() {
     const [emails, setEmails] = useState(null);
-
-    const searchEmail = (keyword) =>{
-        const newEmails = emails.filter(email => 
-                email.firstName.indexOf(keyword) !== -1 ||
-                email.lastName.indexOf(keyword) !== -1 ||
-                email.email.indexOf(keyword) !== -1
-        )
-        setEmails(newEmails);
-    };
     
-    // const searchEmail = (keyword) =>{
-        
-    //     const newEmails = searchData.filter(email => 
-    //             email.firstName.indexOf(keyword) !== -1 ||
-    //             email.lastName.indexOf(keyword) !== -1 ||
-    //             email.email.indexOf(keyword) !== -1
-    //     )
-        
-    //     console.log(newEmails);
-    //     setEmails(newEmails);
-    // };
-
     const addEmail = async (email) => {
         try{
             const response = await fetch('/api',{
@@ -71,9 +50,9 @@ function App() {
 
     }
    
-    const fetchEmails = async () => {
+    const fetchEmails = async (keyword) => {
         try{
-            const response = await fetch('api', {
+            const response = await fetch(`api?kw=${keyword? keyword : ''}`, {
                 method: 'get',
                 headers: {
                     'Content-Type': 'application/json',
@@ -105,13 +84,13 @@ function App() {
     useEffect(() =>{
         fetchEmails();
         
-    }, [addEmail]);
+    }, []);
 
    
     return (
         <div id={'App'}>
             <RegisterForm addEmail={addEmail}/>
-            <Searchbar searchEmail={searchEmail}/>
+            <Searchbar fetchEmails={fetchEmails}/>
             {emails == null?
                 []:
             <Emaillist emails={emails}/>
