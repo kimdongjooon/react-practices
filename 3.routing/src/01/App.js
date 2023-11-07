@@ -32,5 +32,4 @@ export default function App() {
         }
     })(); // ()을 실행시키는 의미.
 
-    return (<div>Hash Route 직접 만들어 보기</div>);
 }

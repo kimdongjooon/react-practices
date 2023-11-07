@@ -4,15 +4,29 @@ import Gallery from "./component/Gallery";
 import Guestbook from "./component/Guestbook";
 
 export default function App() {
-    const [route, setRoute] = useState({page: '/'});
+    // const [route, setRoute] = useState({page: '/'});
+    const [route, setRoute] = useState({page: window.location.href.substring(window.location.href.lastIndexOf('/'))});
 
+    // 뒤로가기 누를때 라우팅 설정하기.
+    useEffect(()=>{
+        const handlePopState = (e) => {
+            setRoute(e.state);
+        };
 
+        window.addEventListener('popstate', handlePopState);
 
+        return () => {
+            window.removeEventListener('popstate', handlePopState)
+        }
+    }, []);
+    
     const handleLinkClick = (e) => {
         e.preventDefault();
         console.log(e.target.href); // 전체 경로
+
         const url = e.target.href.substring(e.target.href.lastIndexOf('/')); // one depth .. 
         console.log(url); // 제일 끝의 경로. 하나만 지정.
+
         window.history.pushState({page: url}, e.target.text, url);
         setRoute({page: url});
     }

@@ -37,7 +37,7 @@ module.exports = function(env) {
             liveReload: true,
             compress: true,
             hot: false,
-            
+            historyApiFallback: true // 페이지 못찾으면 메인페이지로 이동.('/')
         }
     
     };
