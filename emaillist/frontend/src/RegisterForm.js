@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useRef} from "react";
 import styles from './assets/scss/RegisterForm.scss';
 
 function RegisterForm({addEmail}){
+    const refForm = useRef(null);
     return(
         <form 
+            // 폼을 리셋하는 기능
+            ref={refForm}
             className={styles.RegisterForm}
             onSubmit={(e)=>{
                 e.preventDefault();
@@ -14,9 +17,8 @@ function RegisterForm({addEmail}){
                     email : e.target.email.value
                 };
 
-                console.log(email);
                 addEmail(email);
-                
+                refForm.current.reset();
             }}
                 >
               <input type='text' name='firstName' placeholder='성' className={styles.InputFirstName} />

@@ -8,27 +8,13 @@ import update from 'react-addons-update';
 
 function App() {
     const [emails, setEmails] = useState(null);
-    
-    // const addEmails = update(emails, { 
-    //     $push:[{
-    //         '0':{
-    //             no:json.data.no,
-    //         firstName:json.data.firstName,
-    //         lastName:json.data.lastName,
-    //         email:json.data.email
-    //         }  
-    //     }]
-    // });
 
     const searchEmail = (keyword) =>{
-        
         const newEmails = emails.filter(email => 
                 email.firstName.indexOf(keyword) !== -1 ||
                 email.lastName.indexOf(keyword) !== -1 ||
                 email.email.indexOf(keyword) !== -1
         )
-        
-        console.log(newEmails);
         setEmails(newEmails);
     };
     
@@ -60,31 +46,32 @@ function App() {
             }
     
             const json = await response.json();
+
             if(json.result !== 'success'){
                 throw new Error(`${json.result} ${json.message}`);
             }
-    
-            console.log(emails);
-            const addEmails = update(emails, { 
-                $push:[{
-                    '0':{
-                        no:json.data.no,
-                    firstName:json.data.firstName,
-                    lastName:json.data.lastName,
-                    email:json.data.email
-                    }  
-                }]
-            });
+            
+            const newEmails = [json.data, ...emails];
+            setEmails(newEmails);
 
-            console.log(addEmails);
+            // console.log(emails);
+            // const addEmails = update(emails, { 
+            //     $push:[{
+            //         no:json.data.no,
+            //         firstName:json.data.firstName,
+            //         lastName:json.data.lastName,
+            //         email:json.data.email
+            //     }]
+            // });
+            // console.log(addEmails);
         }catch(e){
             console.error(e);
         }
         
 
     }
-
-    const fetchList = async () => {
+   
+    const fetchEmails = async () => {
         try{
             const response = await fetch('api', {
                 method: 'get',
@@ -112,9 +99,11 @@ function App() {
             console.error(e);
         }
     }
+    
+    
 
     useEffect(() =>{
-        fetchList();
+        fetchEmails();
         
     }, [addEmail]);
 

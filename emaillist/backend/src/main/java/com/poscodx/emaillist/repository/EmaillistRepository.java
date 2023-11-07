@@ -17,10 +17,12 @@ public class EmaillistRepository {
 		return sqlSession.selectList("emaillist.findAll");
 	}
 
-	public EmaillistVo insert(EmaillistVo email) {
-		sqlSession.insert("emaillist.insert",email);
-		return sqlSession.selectOne("emaillist.latestEmail");
-		
+//	public EmaillistVo insert(EmaillistVo email) {
+//		sqlSession.insert("emaillist.insert",email);
+//		return sqlSession.selectOne("emaillist.latestEmail");
+//	}
+	public Boolean insert(EmaillistVo email) {
+		return sqlSession.insert("emaillist.insert",email) == 1;
 	}
 	
 
