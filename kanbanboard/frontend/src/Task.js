@@ -13,8 +13,9 @@ const Task = ({no, name, done, changeTaskDone,deleteTask}) => {
             {name}    
             <a 
                 href='#' 
-                onChange={e => {
-                    deleteTask(no)
+                onClick={(e) => {
+                    e.preventDefault();
+                    deleteTask(no);
                 }}
                 className={styles.TaskList__Task__remove} />
         </li>

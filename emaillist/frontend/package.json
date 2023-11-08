@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "debug": "npx webpack serve --config config/webpack.config.js --progress --mode development",
-    "build": "npx webpack --config config/webpack.config.js --mode production"
+    "build": "npm run build:fe && npm run build:be",
+    "dev": "concurrently \"npm run dev:be\" \"npm run dev:fe\"  --kill-others",
+
+    "build:be": "cd ../backend && mvn clean package",
+    "build:fe": "npx webpack --config config/webpack.config.js --mode production",
+    "dev:be": "cd ../backend && mvn spring-boot:run",
+    "dev:fe": "npx webpack serve --config config/webpack.config.js --progress --mode development"
+    
   },
   "keywords": [],
   "author": "",
@@ -27,6 +33,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "concurrently": "^8.2.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-addons-update": "^15.6.3",
