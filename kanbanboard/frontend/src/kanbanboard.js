@@ -1,8 +1,6 @@
 import React ,{useState, useEffect} from 'react';
 import styles from './assets/css/KanbanBoard.css';
 import CardList from './CardList';
-import update from 'react-addons-update';
-
 
 const KanbanBoard = () => {
     const [cards, setCards] = useState(null);
@@ -33,6 +31,8 @@ const KanbanBoard = () => {
 
         }catch(e){
             console.error(e);
+            // window.location.href = '/error' 
+            // 이거는 안됨. 사이트로 가긴하겠지만 경로로 직접 렌더링 시켜주기때문에 진행중에 로드된 컴포넌트들이 다 초기화됨.
         }
     }
 

@@ -2,17 +2,13 @@ import React from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {Routes, Route} from 'react-router';
 import Main from "./component/Main";
-import Gallery from "./component/Gallery";
+import {Gallery} from "./component/gallery";
 import Guestbook from "./component/Guestbook";
 import About from "./component/About";
-import Join from "./component/user/Join";
-import Login from "./component/user/Login";
-import Settings from "./component/user/Settings";
+import {Login, Join, Settings} from "./component/user"; // 폴더를 경로로 지정했을때, index.js 로 접근해서 사용가능 
+
+
 import Error404 from "./component/error/Error404";
-
-// import {Login, Join} from "./component/user";
-
-// import {SiteLayout} from "./layout";
 
 
 import './assets/scss/App.scss'

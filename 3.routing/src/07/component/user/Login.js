@@ -1,17 +1,13 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {SiteLayout} from "../../layout";
 
-export default function Settings() {
-
-
+export default function Login() {
     return (
-        <SiteLayout>
             <div>
                 <h2 style={{
                     lineHeight: '200px',
                     textAlign: 'center'
-                }}>User - Settings</h2>
+                }}>User - Login</h2>
             </div>
-        </SiteLayout>
     );
 }
