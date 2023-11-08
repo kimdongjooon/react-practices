@@ -7,6 +7,36 @@ const Card = ({no, title, description}) => {
     const [showDetails, setShowDetails] = useState(false);
     const [tasks, setTasks] = useState([]);
 
+    const deleteTask = async (taskNo) =>{
+        try{
+            const response = await fetch(`api/task/${taskNo}`, {
+                method: 'delete',
+                headers: {
+                    'Accept':'application/json'
+                },
+    
+            });
+    
+            if(!response.ok){
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+
+            const json = await response.json();
+            if(json.result !== 'success'){
+                throw new Error(`${json.result} ${json.message}`);
+            }
+            
+            const newTasks = tasks.filter(task => task.no != json.data);
+            setTasks(newTasks);
+
+
+        
+        }catch(e){
+            console.error(e);
+        }
+
+    }
+
     const changeTaskDone = async (taskNo, done) => {
         //console.log(taskNo, done);
         try{
@@ -28,7 +58,8 @@ const Card = ({no, title, description}) => {
             if(json.result !== 'success'){
                 throw new Error(`${json.result} ${json.message}`);
             }
-            const index = tasks.findIndex(task => task.no === json.data.no)
+            // 
+            const index = tasks.findIndex(task => task.no === json.data.no) 
             console.log('index= '+index);
             const newTasks = update(tasks,{
                 [index]:{
@@ -137,6 +168,7 @@ const Card = ({no, title, description}) => {
                         tasks={tasks}
                         addTask={addTask}
                         changeTaskDone={changeTaskDone}
+                        deleteTask={deleteTask}
                         />
                 </div>:
                 null
