@@ -8,8 +8,9 @@
     "dev": "concurrently \"npm run dev:be\" \"npm run dev:fe\"  --kill-others",
 
     "build:be": "cd ../backend && mvn clean package",
-    "build:fe": "npx webpack --config config/webpack.config.js --mode production",
     "dev:be": "cd ../backend && mvn spring-boot:run",
+    
+    "build:fe": "npx webpack --config config/webpack.config.js --mode production",
     "dev:fe": "npx webpack serve --config config/webpack.config.js --progress --mode development"
     
   },
