@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export PATH=/usr/local/poscodx2023/java/bin
+
 
 APPLICATION_NAME=emaillist
 SCRIPT_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
