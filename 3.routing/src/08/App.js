@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {Routes, Route} from 'react-router';
 
@@ -33,4 +33,13 @@ export default function App() {
             </Routes>
         </Router>
     );
+    // useRoutes([{
+    //         path: '/',
+    //         element: <SiteLayout/>,
+    //         Children:
+    //            { path:'/', element:<Main />} // 이런형태로 사용가능.
+          
+    // }])
+        
+    
 }
