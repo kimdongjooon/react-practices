@@ -25,7 +25,9 @@ const TaskList = ({tasks, addTask, changeTaskDone,deleteTask}) => {
                 className={styles.TaskList__add_task}
                 onKeyDown={(e)=>{
                     if(e.key === 'Enter'){
-                        addTask(e.target.value);
+                        console.log(e);
+                        // addTask(e.target.value);
+                        // e.target.value = '';
                     }
                 }}/>
         </div>

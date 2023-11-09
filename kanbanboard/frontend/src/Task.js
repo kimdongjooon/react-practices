@@ -10,7 +10,7 @@ const Task = ({no, name, done, changeTaskDone,deleteTask}) => {
                 onChange={e => {
                     changeTaskDone(no, e.target.checked ? 'Y' : 'N')
                 }}/> 
-            {name}    
+            {name}  
             <a 
                 href='#' 
                 onClick={(e) => {
