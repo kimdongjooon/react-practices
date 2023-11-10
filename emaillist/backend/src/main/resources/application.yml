@@ -2,6 +2,8 @@
 spring:
    application:
       name: emaillist
+   profile:
+      active: development
 
       
 ---
@@ -22,16 +24,6 @@ spring:
       mode: HTML5
       suffix : .html
       cache : false
-   
-   # datasource
-   datasource:
-      driver-class-name: org.mariadb.jdbc.Driver
-      url: jdbc:mariadb://192.168.0.92:3307/webdb?charset=utf8
-      username: webdb
-      password: webdb
-      hikari:
-         minimum-idle: 10
-         maximum-pool-size: 20
      
 mybatis:
    config-location: classpath:mybatis/configuration.xml
@@ -48,17 +40,25 @@ logging:
 
          
 ---
-# devel common spring Configuration
+# development Configuration
 spring:
    config:
       activate:
          on-profile: development
       
-   
-   # devtools - live reload
    devtools:
       livereload:
          enabled: true
+   
+   # datasource
+   datasource:
+      driver-class-name: org.mariadb.jdbc.Driver
+      url: jdbc:mariadb://192.168.0.92:3307/webdb?charset=utf8
+      username: webdb
+      password: webdb
+      hikari:
+         minimum-idle: 10
+         maximum-pool-size: 20
 
 
 # Server
@@ -69,12 +69,27 @@ server:
       encoding:
          charset: utf-8
          enabled: true  
+         
+         
 ---
 # production profile: spring boot configuration
 spring:
    config:
       activate:
          on-profile: production
+   
+   # datasource
+   datasource:
+      driver-class-name: org.mariadb.jdbc.Driver
+      url: jdbc:mariadb://192.168.0.92:3307/webdb?charset=utf8
+      username: webdb
+      password: webdb
+      hikari:
+         minimum-idle: 10
+         maximum-pool-size: 20
+         
+      
+        
 # server
 server:
    port: 8088
