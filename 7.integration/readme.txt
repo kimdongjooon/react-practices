@@ -30,6 +30,18 @@
     5) 접속 테스트
         # ssh -i mykey.pem root@192.168.0.92 > 우분투 입력 
 
+    6) 접속 환경 설정. 
+        1. ~/.ssh/environment
+            ===== 
+            PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/poscodx2023/java/bin:/usr/local/poscodx2023/git/bin:/usr/local/poscodx2023/maven/bin
+            PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/poscodx2023/java/bin:/usr/local/poscodx2023/git/bin:/usr/local/poscodx2023/maven/bin
+            =====
+        2. /etc/ssh/sshd_config
+            $ vi /etc/ssh/sshd_config 에서 
+                PermitUserEnvironment yes 설정
+            1691    
+            
+
 3-2. deploy: Publish Over SSH 플러그인(Jenkins)
     1) Publish Over SSH 플러그인 설치. 
         DashBoard > Jenkins관리 > avaliable 설치 클릭, 검색 설치 진행.
@@ -39,5 +51,7 @@
         - 실행서버(ssh server) 등록 : springboot-publish-server
         - 프로젝트의 빌드 후 조치 (post-build action) - jenkins system에서 ..
             - Send build artifacts over SSH 설정.
-                emaillist.jar
+                1. emaillist.jar : tansfer 
+                2. launch.sh: transfer + excution
+
 
