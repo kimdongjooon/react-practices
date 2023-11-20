@@ -17,7 +17,7 @@ function RegisterForm({addEmail}){
                     email : e.target.email.value
                 };
 
-                addEmail(email); // 여기서 api 호출함. 
+                addEmail(email); // 여기서 api 호출함. elc
                 refForm.current.reset();
             }}
                 >
